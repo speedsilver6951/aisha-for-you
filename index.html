@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffe9f0">
+<title>Для Аиши ❤️</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E❤️%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root {
+    --rose: #e8588a;
+    --rose-deep: #b83b66;
+    --rose-soft: #b0728a;
+    --ink: #6a3a4c;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: linear-gradient(165deg, #fff6ef 0%, #ffeaf1 48%, #ffdde9 100%);
+    overflow-x: hidden;
+  }
+
+  /* ---------- Фон ---------- */
+  .glow {
+    position: fixed;
+    width: 75vmax;
+    height: 75vmax;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(255, 140, 185, .45) 0%, rgba(255, 140, 185, 0) 65%);
+  }
+  .glow.a { top: -38vmax; left: -38vmax; }
+  .glow.b { bottom: -38vmax; right: -38vmax; }
+
+  .fall {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .fall span {
+    position: absolute;
+    top: 0;
+    left: var(--x);
+    font-size: var(--s);
+    line-height: 1;
+    color: var(--c);
+    opacity: 0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, .9);
+    will-change: transform, opacity;
+    animation: fall var(--d) linear var(--dl) infinite;
+  }
+  @keyframes fall {
+    0%   { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+    10%  { opacity: var(--o); }
+    90%  { opacity: var(--o); }
+    100% { transform: translate3d(var(--dx), 110vh, 0) rotate(var(--r)); opacity: 0; }
+  }
+
+  #fx {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* ---------- Основная колонка ---------- */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px calc(56px + env(safe-area-inset-bottom));
+  }
+
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 0;
+  }
+
+  h1 {
+    margin: 0 0 .7rem;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 10.5vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    color: var(--rose-deep);
+    text-shadow: 0 6px 30px rgba(255, 255, 255, .9);
+  }
+
+  .lead {
+    margin: 0;
+    max-width: 24em;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.05rem, 4.3vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  /* ---------- Сердце ---------- */
+  .heart-btn {
+    position: relative;
+    display: block;
+    width: clamp(160px, 50vw, 240px);
+    aspect-ratio: 100 / 90;
+    margin: clamp(1.6rem, 6vh, 2.6rem) 0 1.2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    filter: drop-shadow(0 14px 24px rgba(232, 88, 138, .35));
+    transition: transform .28s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .heart-btn svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 55%;
+    animation: pulse 2.8s ease-in-out infinite;
+  }
+  .heart-btn::after {
+    content: "";
+    position: absolute;
+    inset: -38%;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle, rgba(255, 120, 170, .6) 0%, rgba(255, 120, 170, 0) 65%);
+  }
+  .heart-btn.pop::after { animation: halo .85s ease-out; }
+
+  @media (hover: hover) {
+    .heart-btn:hover { transform: scale(1.08); }
+  }
+  .heart-btn:active { transform: scale(.93); }
+  .heart-btn:focus-visible { outline: 3px solid rgba(232, 88, 138, .55); outline-offset: 10px; border-radius: 30%; }
+
+  @keyframes pulse {
+    0%, 60%, 100% { transform: scale(1); }
+    15% { transform: scale(1.07); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.05); }
+  }
+  @keyframes halo {
+    0%   { opacity: .95; transform: scale(.6); }
+    100% { opacity: 0;   transform: scale(1.25); }
+  }
+
+  .hint {
+    margin: 0;
+    font-size: .98rem;
+    letter-spacing: .02em;
+    color: var(--rose-soft);
+  }
+  .music {
+    min-height: 1.5em;
+    margin: .7rem 0 0;
+    font-size: .92rem;
+    color: #c0537f;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+  }
+  .music.on { opacity: 1; }
+
+  /* ---------- Карточки ---------- */
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .card {
+    padding: clamp(26px, 6.5vw, 42px) clamp(20px, 5.5vw, 36px);
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .62);
+    border: 1px solid rgba(255, 255, 255, .92);
+    box-shadow: 0 26px 60px -28px rgba(210, 90, 140, .5), inset 0 1px 0 rgba(255, 255, 255, .8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .card h2 {
+    margin: 0 0 1.1rem;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+    color: var(--rose-deep);
+  }
+  .card p {
+    margin: 0 0 1em;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .card .accent {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 5.2vw, 1.6rem);
+    line-height: 1.45;
+    color: var(--rose-deep);
+  }
+
+  /* Таймер */
+  .sub {
+    margin: -.4rem 0 1.4rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--rose-soft);
+  }
+  .timer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 1.4rem;
+  }
+  .unit {
+    padding: 16px 4px 14px;
+    border-radius: 22px;
+    background: rgba(255, 241, 246, .85);
+    border: 1px solid rgba(255, 255, 255, .95);
+    box-shadow: 0 14px 30px -18px rgba(210, 90, 140, .55);
+  }
+  .num {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 7.5vw, 2.7rem);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: var(--rose-deep);
+  }
+  .lbl {
+    display: block;
+    margin-top: .5rem;
+    font-size: .8rem;
+    color: var(--rose-soft);
+  }
+  .since { color: var(--rose-soft); font-size: .98rem; }
+
+  /* Финальная карточка */
+  .small-title {
+    margin: 0 0 .9rem;
+    font-size: .98rem;
+    color: var(--rose-soft);
+  }
+  blockquote {
+    margin: 0 0 1.3rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.45rem, 6.2vw, 2.1rem);
+    line-height: 1.4;
+    color: var(--rose-deep);
+  }
+
+  /* Плавное появление карточек */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .js .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 480px) {
+    .timer { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .unit { padding: 18px 6px 16px; }
+    .num { font-size: clamp(2.2rem, 11vw, 2.8rem); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fall { display: none; }
+    .heart-btn svg { animation: none; }
+    .heart-btn, .music { transition: none; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow a" aria-hidden="true"></div>
+<div class="glow b" aria-hidden="true"></div>
+<div class="fall" id="fall" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main>
+  <section class="hero">
+    <h1>Для Аиши ❤️</h1>
+    <p class="lead">Есть люди, которые просто появляются в жизни…<br>а потом делают её намного теплее.</p>
+
+    <button class="heart-btn" id="heart" type="button" aria-label="Сердце. Нажми, чтобы увидеть сюрприз">
+      <svg viewBox="0 0 100 90" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="0.4" y2="1">
+            <stop offset="0" stop-color="#ffb3cb"/>
+            <stop offset="0.55" stop-color="#ff7fa8"/>
+            <stop offset="1" stop-color="#ea5a8b"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 86 C12 57 2 35 2 23 C2 10 12 2 25 2 C36 2 45 8 50 17 C55 8 64 2 75 2 C88 2 98 10 98 23 C98 35 88 57 50 86 Z" fill="url(#hg)"/>
+        <ellipse cx="29" cy="22" rx="11" ry="6.5" transform="rotate(-35 29 22)" fill="#fff" opacity=".38"/>
+      </svg>
+    </button>
+
+    <p class="hint">Нажми на сердце ✨</p>
+    <p class="music" id="music" aria-live="polite">♫ Наша маленькая мелодия играет</p>
+  </section>
+
+  <div class="cards">
+    <section class="card reveal">
+      <h2>Для тебя</h2>
+      <p class="accent">Ты — одно из самых прекрасных событий в моей жизни.</p>
+      <p>Спасибо за каждый разговор, каждую улыбку и за то особенное чувство, когда видишь сообщение от тебя и настроение само становится лучше.</p>
+      <p>Я очень рад, что однажды начал с тобой общаться. ❤️</p>
+    </section>
+
+    <section class="card reveal">
+      <h2>Наше время</h2>
+      <p class="sub">Мы общаемся уже…</p>
+      <div class="timer" role="timer" aria-label="Время с начала общения">
+        <div class="unit"><span class="num" id="n-d">0</span><span class="lbl" id="l-d">дней</span></div>
+        <div class="unit"><span class="num" id="n-h">00</span><span class="lbl" id="l-h">часов</span></div>
+        <div class="unit"><span class="num" id="n-m">00</span><span class="lbl" id="l-m">минут</span></div>
+        <div class="unit"><span class="num" id="n-s">00</span><span class="lbl" id="l-s">секунд</span></div>
+      </div>
+      <p class="since">С 1 июня 2026 года, 21:32 ❤️</p>
+    </section>
+
+    <section class="card reveal">
+      <p class="small-title">И ещё кое-что</p>
+      <blockquote>Иногда один человек может незаметно стать очень важной частью твоих дней.</blockquote>
+      <p>И мне кажется, ты как раз такой человек.</p>
+    </section>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function rand(min, max) { return min + Math.random() * (max - min); }
+
+  /* ---------- Падающие символы (CSS-анимация, 18 элементов) ---------- */
+  (function buildFalling() {
+    if (reduceMotion) return;
+    var box = document.getElementById('fall');
+    var symbols = ['♡', '✦', '·', '❤', '♡', '✦'];
+    var colors = ['#f29bb7', '#f7b6cb', '#ec86aa', '#ffc9da'];
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 18; i++) {
+      var sym = symbols[i % symbols.length];
+      var el = document.createElement('span');
+      el.textContent = sym;
+      el.style.setProperty('--x', rand(0, 98).toFixed(1) + '%');
+      el.style.setProperty('--s', (sym === '·' ? rand(22, 30) : rand(10, 19)).toFixed(0) + 'px');
+      el.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
+      el.style.setProperty('--d', rand(16, 28).toFixed(1) + 's');
+      el.style.setProperty('--dl', '-' + rand(0, 28).toFixed(1) + 's');
+      el.style.setProperty('--dx', rand(-40, 40).toFixed(0) + 'px');
+      el.style.setProperty('--r', rand(-90, 90).toFixed(0) + 'deg');
+      el.style.setProperty('--o', rand(0.28, 0.55).toFixed(2));
+      frag.appendChild(el);
+    }
+    box.appendChild(frag);
+  })();
+
+  /* ---------- Частицы на canvas ---------- */
+  var canvas = document.getElementById('fx');
+  var ctx = canvas.getContext('2d');
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var particles = [];
+  var running = false;
+  var lastTime = 0;
+  var MAX_PARTICLES = 180;
+  var PALETTE = ['#ff7aa8', '#ff9ec0', '#ffc2d6', '#ffffff', '#f56a98', '#ffd9e5'];
+
+  function resize() {
+    canvas.width = Math.round(window.innerWidth * dpr);
+    canvas.height = Math.round(window.innerHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function spawn(x, y) {
+    var count = reduceMotion ? 6 : 20;
+    for (var i = 0; i < count; i++) {
+      if (particles.length >= MAX_PARTICLES) break;
+      var kind = i % 5 < 2 ? 0 : (i % 5 < 4 ? 1 : 2); // сердечки, искорки, цветочки
+      var angle = rand(0, Math.PI * 2);
+      var speed = rand(90, 270);
+      particles.push({
+        kind: kind,
+        x: x, y: y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 90,
+        size: kind === 0 ? rand(5, 9) : (kind === 1 ? rand(4, 8) : rand(5, 8)),
+        rot: rand(0, Math.PI * 2),
+        vr: rand(-3, 3),
+        age: 0,
+        life: rand(800, 1150),
+        color: PALETTE[Math.floor(Math.random() * PALETTE.length)]
+      });
+    }
+    if (!running) {
+      running = true;
+      lastTime = performance.now();
+      requestAnimationFrame(frame);
+    }
+  }
+
+  function drawHeart(s) {
+    ctx.beginPath();
+    ctx.moveTo(0, s * 0.9);
+    ctx.bezierCurveTo(-s * 1.6, -s * 0.1, -s * 0.7, -s * 1.1, 0, -s * 0.4);
+    ctx.bezierCurveTo(s * 0.7, -s * 1.1, s * 1.6, -s * 0.1, 0, s * 0.9);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawSpark(s) {
+    ctx.beginPath();
+    ctx.moveTo(0, -s);
+    ctx.quadraticCurveTo(0, 0, s, 0);
+    ctx.quadraticCurveTo(0, 0, 0, s);
+    ctx.quadraticCurveTo(0, 0, -s, 0);
+    ctx.quadraticCurveTo(0, 0, 0, -s);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawFlower(s, color) {
+    var r = s * 0.5;
+    for (var i = 0; i < 5; i++) {
+      var a = (i / 5) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.arc(Math.cos(a) * r, Math.sin(a) * r, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.fillStyle = '#fff3c9';
+    ctx.beginPath();
+    ctx.arc(0, 0, r * 0.7, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function frame(now) {
+    var dt = Math.min((now - lastTime) / 1000, 0.05);
+    lastTime = now;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.age += dt * 1000;
+      if (p.age >= p.life) {
+        particles[i] = particles[particles.length - 1];
+        particles.pop();
+        continue;
+      }
+      var drag = 1 - 1.8 * dt;
+      p.vx *= drag;
+      p.vy = p.vy * drag + 220 * dt;
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      p.rot += p.vr * dt;
+
+      var t = p.age / p.life;
+      var s = p.size * (0.6 + 0.4 * Math.min(1, t * 6));
+
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, 1 - t * t);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.kind === 0) drawHeart(s);
+      else if (p.kind === 1) drawSpark(s * 1.2);
+      else drawFlower(s, p.color);
+      ctx.restore();
+    }
+
+    if (particles.length > 0) {
+      requestAnimationFrame(frame);
+    } else {
+      running = false;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+  }
+
+  /* ---------- Мелодия (Web Audio API, оригинальная) ---------- */
+  var audio = null;
+  var musicStarted = false;
+
+  var BPM = 72;
+  var STEP = 60 / BPM / 2;       // восьмая нота
+  var BAR = STEP * 8;
+  var BASS   = [45, 41, 48, 43];                                   // A  F  C  G
+  var CHORDS = [[57, 60, 64], [53, 57, 60], [55, 60, 64], [55, 59, 62]];
+  var ARP    = [0, 1, 2, 1, 2, 1, 2, 1];
+  var MELODY = [
+    [[0, 76], [3, 72], [4, 74], [6, 72]],
+    [[0, 72], [3, 69], [4, 72], [6, 76]],
+    [[0, 79], [3, 76], [4, 72], [6, 76]],
+    [[0, 74], [3, 71], [4, 74], [6, 79]]
+  ];
+
+  function createAudio() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    var c = new AC();
+
+    var master = c.createGain();
+    master.gain.setValueAtTime(0.0001, c.currentTime);
+    master.gain.exponentialRampToValueAtTime(0.5, c.currentTime + 2.5);
+    master.connect(c.destination);
+
+    var filter = c.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 1800;
+    filter.Q.value = 0.4;
+    filter.connect(master);
+
+    var delay = c.createDelay(1);
+    delay.delayTime.value = STEP * 3;
+    var feedback = c.createGain();
+    feedback.gain.value = 0.28;
+    var wet = c.createGain();
+    wet.gain.value = 0.3;
+    filter.connect(delay);
+    delay.connect(feedback);
+    feedback.connect(delay);
+    delay.connect(wet);
+    wet.connect(master);
+
+    var bus = c.createGain();
+    bus.gain.value = 1;
+    bus.connect(filter);
+
+    return { ctx: c, bus: bus, nextBar: c.currentTime + 0.15, barIndex: 0, timer: null };
+  }
+
+  function tone(type, midi, when, dur, peak) {
+    var c = audio.ctx;
+    var o = c.createOscillator();
+    var g = c.createGain();
+    o.type = type;
+    o.frequency.value = 440 * Math.pow(2, (midi - 69) / 12);
+    g.gain.setValueAtTime(0.0001, when);
+    g.gain.exponentialRampToValueAtTime(peak, when + 0.04);
+    g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g);
+    g.connect(audio.bus);
+    o.start(when);
+    o.stop(when + dur + 0.05);
+    o.onended = function () { o.disconnect(); g.disconnect(); };
+  }
+
+  function scheduleBar(when, idx) {
+    tone('sine', BASS[idx], when, BAR * 0.95, 0.09);
+    var chord = CHORDS[idx];
+    for (var i = 0; i < 8; i++) {
+      tone('triangle', chord[ARP[i]], when + i * STEP, STEP * 2.2, 0.05);
+    }
+    var mel = MELODY[idx];
+    for (var j = 0; j < mel.length; j++) {
+      tone('sine', mel[j][1], when + mel[j][0] * STEP, STEP * 3, 0.07);
+    }
+  }
+
+  function pump() {
+    audio.timer = null;
+    var c = audio.ctx;
+    while (audio.nextBar < c.currentTime + 1.5) {
+      scheduleBar(audio.nextBar, audio.barIndex % 4);
+      audio.nextBar += BAR;
+      audio.barIndex++;
+    }
+    audio.timer = setTimeout(pump, 500);
+  }
+
+  function startMusic() {
+    if (musicStarted) return;
+    musicStarted = true;
+    try {
+      audio = createAudio();
+      if (!audio) return;
+      if (audio.ctx.state === 'suspended') audio.ctx.resume();
+      pump();
+      document.getElementById('music').classList.add('on');
+    } catch (err) {
+      audio = null;
+    }
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (!audio) return;
+    if (document.hidden) audio.ctx.suspend();
+    else audio.ctx.resume();
+  });
+
+  /* ---------- Сердце ---------- */
+  var heart = document.getElementById('heart');
+
+  function pop() {
+    heart.classList.remove('pop');
+    void heart.offsetWidth;
+    heart.classList.add('pop');
+  }
+  heart.addEventListener('animationend', function (e) {
+    if (e.animationName === 'halo') heart.classList.remove('pop');
+  });
+
+  heart.addEventListener('click', function (e) {
+    var x = e.clientX, y = e.clientY;
+    if (!x && !y) {
+      var r = heart.getBoundingClientRect();
+      x = r.left + r.width / 2;
+      y = r.top + r.height / 2;
+    }
+    spawn(x, y);
+    pop();
+    startMusic();
+  });
+
+  /* ---------- Таймер ---------- */
+  var START = new Date(2026, 5, 1, 21, 32, 0).getTime();
+  var nums = {
+    d: document.getElementById('n-d'), h: document.getElementById('n-h'),
+    m: document.getElementById('n-m'), s: document.getElementById('n-s')
+  };
+  var lbls = {
+    d: document.getElementById('l-d'), h: document.getElementById('l-h'),
+    m: document.getElementById('l-m'), s: document.getElementById('l-s')
+  };
+  var forms = {
+    d: ['день', 'дня', 'дней'],
+    h: ['час', 'часа', 'часов'],
+    m: ['минута', 'минуты', 'минут'],
+    s: ['секунда', 'секунды', 'секунд']
+  };
+  var shown = {};
+  var tickTimer = null;
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function plural(n, f) {
+    var a = n % 100, b = a % 10;
+    if (a > 10 && a < 20) return f[2];
+    if (b > 1 && b < 5) return f[1];
+    if (b === 1) return f[0];
+    return f[2];
+  }
+
+  function setUnit(key, value, text) {
+    if (shown[key] !== text) {
+      nums[key].textContent = text;
+      shown[key] = text;
+    }
+    var label = plural(value, forms[key]);
+    if (shown[key + 'l'] !== label) {
+      lbls[key].textContent = label;
+      shown[key + 'l'] = label;
+    }
+  }
+
+  function tick() {
+    clearTimeout(tickTimer);
+    var total = Math.floor(Math.max(0, Date.now() - START) / 1000);
+    var s = total % 60;
+    var m = Math.floor(total / 60) % 60;
+    var h = Math.floor(total / 3600) % 24;
+    var d = Math.floor(total / 86400);
+    setUnit('d', d, String(d));
+    setUnit('h', h, pad(h));
+    setUnit('m', m, pad(m));
+    setUnit('s', s, pad(s));
+    tickTimer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
+  }
+  tick();
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) tick();
+  });
+
+  /* ---------- Появление карточек ---------- */
+  (function reveal() {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    for (var k = 0; k < items.length; k++) io.observe(items[k]);
+  })();
+})();
+</script>
+</body>
+</html>
